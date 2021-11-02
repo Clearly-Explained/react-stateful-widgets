@@ -29,7 +29,7 @@ export default function Programmers() {
   // The programmers list on the one hand, and the id of the featured programmer on the other.
 
   const [featuredProgrammer, setFeatured] = useState('');
-  const [programmerArray, setArray] = useState(listOfAwesome);
+  const [programmerArray] = useState(listOfAwesome);
 
   const getNameOfFeatured = () => {
     // Leave this for last!
@@ -43,7 +43,7 @@ export default function Programmers() {
   const style = {
     fontSize: '1.5em',
     marginTop: '0.5em',
-    color: featuredProgrammer !== '' ? 'gold' : 'royalblue', // 🤔 color turns to gold, when celebrating
+    color: featuredProgrammer ? 'gold' : 'royalblue', // 🤔 color turns to gold, when celebrating
   };
 
   return (
@@ -66,7 +66,7 @@ export default function Programmers() {
           // Ternaries are fantastic to render "one thing or the other" depending on the "truthiness" of something.
           // Pseudo-code: if the currently featured id is truthy render text 1, otherwise render text 2.
           // Replace the hard-coded false with the correct variable.
-          featuredProgrammer !== ''
+          featuredProgrammer
             ? `🎉 Let's celebrate ${getNameOfFeatured()}! 🥳`
             : 'Pick an awesome programmer'
         }
